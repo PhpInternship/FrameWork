@@ -12,4 +12,5 @@ return array(
 	//other configs
 	'auth' => 1, //验证
 	'default_module' => 'home', //默认模块
+	'controller_dir' => APP.'/controllers/', //控制器路径
 );

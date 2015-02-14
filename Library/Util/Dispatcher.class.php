@@ -8,6 +8,7 @@
  */
 namespace Library\Util;
 
+use Library\Router\Router;
 class Dispatcher {
 	/**
 	 * 模块名称
@@ -53,12 +54,23 @@ class Dispatcher {
 	private function initalize($uri,$configs) {
 		$uri = explode('/', $uri);
 		
+		/**
+		 * @todo 暂时不实现多模块功能
+		 */
 		//获取默认模块名称
-		$default_module = $configs->get('default_module');
+		//$default_module = $configs->get('default_module');
 		
 		//设定为默认模块名称
-		$this->setModuleName($default_module);
+		//$this->setModuleName($default_module);
 		
+		//设定控制器
+		$this->setControllerName($uri[1]);
+		$this->setActionName($uri[2]);
+		
+		var_dump($this->getControllerName());exit;
+		
+		$router = new Router();
+		$router->handle();
 		
 	}
 	
@@ -115,6 +127,16 @@ class Dispatcher {
 	 */
 	private function setActionName($action) {
 		$this->action = $action;
+	}
+	
+	/**
+	 * 转发请求
+	 * @param Array $route 路由
+	 * @route['controller'] 控制器名称
+	 * @route['action'] 响应方法名称
+	 */
+	public function forward(Array $route) {
+	
 	}
 	
 }

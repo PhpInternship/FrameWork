@@ -4,6 +4,23 @@
  */
 namespace Library\MVC;
 
+use Library\Config\Load;
+use App\Controller\Base;
 class Controller {
+	public function test() {
+		self::getController('BaseController.php');
+		
+		echo Base::index();
+	}
 	
+	/**
+	 * 获取控制器路径
+	 */
+	public function getController($controller) {
+		$configs = new Load(APP.'/configs/config.php');
+		$controllerDir = $configs->get('controller_dir');
+		
+		require_once $controllerDir.$controller;
+		
+	}
 }

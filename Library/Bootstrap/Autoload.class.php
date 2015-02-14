@@ -4,9 +4,10 @@
  */
 namespace Library\Bootstrap;
 
-use Library\Util\Page;
+//use Library\Util\Page;
 use Library\Util\Dispatcher;
 use Library\Config\Load;
+use Library\MVC\Controller;
 class Autoload {
 	/**
 	 * 配置项
@@ -22,11 +23,11 @@ class Autoload {
 		spl_autoload_register(function ($class) {
 			include $class . '.class.php';
 		});
-		$this->initalize();
+		//$this->initalize();
 		
-		$dispatcher = new Dispatcher($uri,$this->getConfigs());
+		//$dispatcher = new Dispatcher($uri,$this->getConfigs());
 		
-		
+		Controller::test();
 		
 // 		$app = new Application();
  		
