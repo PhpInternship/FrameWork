@@ -68,7 +68,6 @@ class Dispatcher {
 		$this->setControllerName($uri[1]);
 		$this->setActionName($uri[2]);
 		
-		var_dump($this->getControllerName());exit;
 		
 		
 		

@@ -17,6 +17,20 @@ class DI {
 	protected $db;
 	
 	/**
+	 * 视图
+	 * @var mixed
+	 * @access protected
+	 */
+	protected $view;
+	
+	/**
+	 * 调度器
+	 * @var mixed
+	 * @access protected
+	 */
+	protected $dispatcher;
+	
+	/**
 	 * 构造方法
 	 */
 	public function __construct() {
@@ -29,7 +43,7 @@ class DI {
 	 * @param mixed $definition
 	 */
 	public function set($name,$definition) {
-		$this->$name = $definition;
+		$this->$name = $definition();
 	}
 	
 	/**
