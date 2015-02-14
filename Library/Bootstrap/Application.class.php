@@ -6,13 +6,17 @@ namespace Library\Bootstrap;
 
 class Application {
 	/**
-	 * 运行app
+	 * 启动应用
 	 */
-	public function run($configs) {
-		$this->test();
+	public static function start() {
+		spl_autoload_register("Library\Bootstrap\Application::autoload");
 	}
 	
 	public function test() {
 		echo 'test,application';
+	}
+	
+	public static function autoload($class) {
+		include $class.EXT;
 	}
 }

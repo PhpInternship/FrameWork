@@ -8,7 +8,7 @@
  */
 namespace Library\Util;
 
-use Library\Router\Router;
+
 class Dispatcher {
 	/**
 	 * 模块名称
@@ -42,8 +42,9 @@ class Dispatcher {
 	 * 构造函数
 	 * @param String $uri 请求资源
 	 */
-	public function __construct($uri,$configs) {
-		$this->initalize($uri,$configs);		
+	public function __construct() {
+		$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+		$this->initalize($uri);		
 		
 	}
 	
@@ -51,7 +52,7 @@ class Dispatcher {
 	 * 初始化
 	 * @param String $uri 请求资源
 	 */
-	private function initalize($uri,$configs) {
+	private function initalize($uri) {
 		$uri = explode('/', $uri);
 		
 		/**
@@ -69,8 +70,7 @@ class Dispatcher {
 		
 		var_dump($this->getControllerName());exit;
 		
-		$router = new Router();
-		$router->handle();
+		
 		
 	}
 	
