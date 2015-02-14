@@ -14,16 +14,14 @@ define("Lib",__DIR__.'../Library');
 
 require_once  Lib.'/Bootstrap/Autoload.class.php';
 
-$autoload = new Autoload();
 
-// use Library\Bootstrap\Application as Application;
-// use Library\Config\Load;
 
-// 
+/**
+ * 请求资源
+ */
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// var_dump($configs);exit;
-// $app = new Application();
-// $app->test();
+$autoload = new Autoload($uri);
 
 
 
