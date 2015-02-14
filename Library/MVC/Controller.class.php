@@ -9,8 +9,8 @@ use App\Controller\Base;
 class Controller {
 	public function test() {
 		self::getController('BaseController.php');
-		
-		echo Base::index();
+		$action = 'indexAction';
+		echo Base::$action();
 	}
 	
 	/**
