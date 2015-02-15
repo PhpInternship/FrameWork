@@ -23,4 +23,25 @@ class Controller {
 		require_once $controllerDir.$controller;
 		
 	}
+	
+	/**
+	 * 开始执行路由请求前的处理
+	 */
+	public function beforeExecuteRoute() {
+	
+	}
+	
+	/**
+	 * 初始化
+	 */
+	public function initialize() {
+		
+	}
+	
+	/**
+	 * 路由请求执行结束后
+	 */
+	public function afterExecuteRoute() {
+	
+	}
 }

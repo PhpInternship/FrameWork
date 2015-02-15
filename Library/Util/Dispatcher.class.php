@@ -49,6 +49,48 @@ class Dispatcher {
 	}
 	
 	/**
+	 * 分发请求
+	 */
+	public function dispatch() {
+		
+	}
+	
+	/**
+	 * 开始分发前
+	 */
+	public function beforeDispatchLoop() {
+		
+	}
+	
+	/**
+	 * 根据Dispatcher携带的Module、Namespace、Controller、Action获得完整的类与方法名，如果找不到则触发事件beforeException
+	 */
+	public function beforeException() {
+		
+	}
+	
+	/**
+	 * 提示错误后
+	 */
+	public function afterException() {
+		
+	}
+	
+	/**
+	 * 开始执行路由请求前的处理
+	 */
+	public function beforeExecuteRoute() {
+		
+	}
+	
+	/**
+	 * 路由请求执行结束后
+	 */
+	public function afterExecuteRoute() {
+	
+	}
+	
+	/**
 	 * 初始化
 	 * @param String $uri 请求资源
 	 */
@@ -68,9 +110,35 @@ class Dispatcher {
 		$this->setControllerName($uri[1]);
 		$this->setActionName($uri[2]);
 		
+	}
+	
+	/**
+	 * 调用Action方法
+	 */
+	public function afterInitialize() {
 		
+	}
+	
+	/**
+	 * 分发过程结束后的处理
+	 */
+	public function afterDispatch() {
 		
+	}
+	
+	/**
+	 * Action内如果有forward()，开始下一次分发
+	 * 全部分发结束，触发事件 dispatch:afterDispatchLoop
+	 */
+	public function afterDispatchLoop() {
 		
+	}
+	
+	/**
+	 * Application获得分发后的输出 $dispatcher->getReturnedValue()
+	 */
+	public function getReturnedValue() {
+	
 	}
 	
 	/**

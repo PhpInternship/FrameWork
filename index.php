@@ -12,18 +12,11 @@ use Library\Bootstrap\Application;
 
 
 require_once  Lib.'Core.php';
-$application = new Application();
 
-$application->start();
 
 //加载配置项
 $configs = new Library\Config\Load(APP.'/configs/config.php');
 
-//注册控制器路径和模型路径
-$application->registerDirs(array(
-	'controller' => $configs->get('controller_dir'),
-	'model' => $configs->get('model_dir'),
-));
 
 //实例化反转注入
 $di = new DI();
@@ -51,11 +44,21 @@ $di->set('dispatcher',function() {
 });
 
 $db = $di->get('db');
-$db->execute("select * from users");
+//$db->execute("select * from users");
 
 $dispatcher = $di->get('dispatcher');
-echo $dispatcher->getControllerName();
+//echo $dispatcher->getControllerName();
 
+
+$application = new Application($di);
+
+$application->start();
+
+//注册控制器路径和模型路径
+$application->registerDirs(array(
+		'controller' => $configs->get('controller_dir'),
+		'model' => $configs->get('model_dir'),
+));
 
 
 
