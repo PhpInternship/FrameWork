@@ -18,7 +18,7 @@ require_once  Lib.'Core.php';
 $configs = new Library\Config\Load(APP.'/configs/config.php');
 
 
-//实例化反转注入
+//实例化依赖注入
 $di = new DI();
 
 //注入数据库
@@ -59,6 +59,11 @@ $application->registerDirs(array(
 		'controller' => $configs->get('controller_dir'),
 		'model' => $configs->get('model_dir'),
 ));
+
+
+$application->handle()->getContent();
+
+
 
 
 
