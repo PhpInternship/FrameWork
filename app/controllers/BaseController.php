@@ -1,11 +1,11 @@
 <?php
-namespace App\Controller;
+namespace App\Controllers;
 
 use Library\MVC\Controller;
 /**
  * 基本控制器类
  */
-class Base extends Controller {
+class BaseController extends Controller {
 	public function indexAction() {
 		echo __NAMESPACE__.',index';
 	}

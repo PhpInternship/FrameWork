@@ -13,7 +13,7 @@ return array(
 	//other configs
 	'auth' => 1, //验证
 	'default_module' => 'home', //默认模块
-	'controller_dir' => 'app/controllers/', //控制器路径
-	'model_dir' => 'app/models/',
-	'view_dir' => 'app/views/',
+	'controller_dir' => 'controllers/', //控制器路径
+	'model_dir' => 'models/',
+	'view_dir' => 'views/',
 );

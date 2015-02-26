@@ -1,9 +1,11 @@
 <?php
+namespace Library\Bootstrap;
+use Library\MVC\View;
+use Library\Http\Request;
+
 /**
  * 实例化应用类
  */
-namespace Library\Bootstrap;
-
 class Application {
 	
 	/**
@@ -60,7 +62,14 @@ class Application {
 	 * @param unknown $class
 	 */
 	public static function autoload($class) {
-		include $class.EXT;
+		if (is_file($class.'.class.php')) {
+			include_once $class.'.class.php';
+		}elseif (is_file($class.'.php')) {
+			include_once $class.'.php';
+		}
+		
+		
+		
 	}
 	
 	/**
@@ -158,12 +167,28 @@ class Application {
 	 */
 	public function handle() {
 		
+		/**
+		 * 1.获取请求
+		 * 2.转发请求
+		 * 3.调用控制器的响应方法
+		 * 4.通过model查询数据库
+		 * 5.调用视图view
+		 * 6.返回响应
+		 * 7.输出内容
+		 *
+		 */
+		
+		$request = new Request();
+		
+		$dispatcher = $this->getDI()->get('dispatcher');
+		//$route = $this->getDI()->get('dispatcher')->process();
+		
+		//require_once APP.$this->getControllersDir().$route['controller'].'.php';
+		
+		//$controller = new $route['controller']();
+		
+		
+		//return new View();
 	}
 	
-	/**
-	 * 发送响应
-	 */
-	public function getContent() {
-		
-	}
 }

@@ -1,9 +1,13 @@
 <?php
-/**
- * 视图类
- */
 namespace Library\MVC;
 
+/**
+ * 视图类
+ *
+ * @author hongker
+ * @package Library\MVC
+ * @version 1.0
+ */
 class View {
 	/**
 	 * 视图路径
@@ -48,5 +52,18 @@ class View {
 	 */
 	public function setViewsDir($modelDir) {
 		$this->modelDir = $modelDir;
+	}
+	
+	/**
+	 * 发送响应
+	 */
+	public function getContent() {
+		ob_start();
+		echo 'this is view content';
+// 		$content = ob_get_contents();//取得php页面输出的全部内容
+// 		$fp = fopen("output00001.html", "w"); //创建一个文件，并打开，准备写入
+// 		fwrite($fp, $content); //把php页面的内容全部写入output00001.html，然后……
+// 		fclose($fp);
+		ob_flush();
 	}
 }

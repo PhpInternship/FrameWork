@@ -1,28 +1,24 @@
 <?php
+namespace Library\MVC;
+
 /**
  * 控制器类
  */
-namespace Library\MVC;
-
-use Library\Config\Load;
-use App\Controller\Base;
 class Controller {
-	public function test() {
-		self::getController('BaseController.php');
-		$action = 'indexAction';
-		echo Base::$action();
-	}
 	
 	/**
-	 * 获取控制器路径
+	 * 请求
+	 * @var Library\Http\Request
+	 * @access protected
 	 */
-	public function getController($controller) {
-		$configs = new Load(APP.'/configs/config.php');
-		$controllerDir = $configs->get('controller_dir');
-		
-		require_once $controllerDir.$controller;
-		
-	}
+	protected $request;
+	
+	/**
+	 * 响应
+	 * @var Library\Http\Response
+	 * @access protected
+	 */
+	protected $response;
 	
 	/**
 	 * 开始执行路由请求前的处理
@@ -44,4 +40,33 @@ class Controller {
 	public function afterExecuteRoute() {
 	
 	}
+	
+	/**
+	 * 设定request
+	 */
+	public function setRequest() {
+		
+	}
+	
+	/**
+	 * 获取request
+	 */
+	public function getRequest() {
+		
+	}
+	
+	/**
+	 * 设定response
+	 */
+	public function setResponse() {
+	
+	}
+	
+	/**
+	 * 获取response
+	 */
+	public function getResponse() {
+	
+	}
+	
 }

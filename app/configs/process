@@ -1,0 +1,8 @@
+FrameWork 运行流程
+
+1. htaccess文件，引导请求至入口文件index.php
+
+2. index.php,入口文件，配置目录（Public,APP,Lib）
+	调用Library\Core.php核心文件，引用Library\Bootstrap\Application，运行start()方法，启动自加载类功能。
+	
+3. Application::handle(),处理请求。

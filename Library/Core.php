@@ -1,4 +1,5 @@
 <?php
+use Library\Bootstrap\Application;
 /**
  * 框架核心文件
  */
@@ -10,6 +11,8 @@
 const EXT = '.class.php'; 
 
 require_once Lib.'/Bootstrap/Application'.EXT;
+
+Application::start();
 
 
 

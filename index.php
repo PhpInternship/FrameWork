@@ -14,6 +14,7 @@ use Library\Bootstrap\Application;
 require_once  Lib.'Core.php';
 
 
+
 //加载配置项
 $configs = new Library\Config\Load(APP.'/configs/config.php');
 
@@ -49,10 +50,10 @@ $db = $di->get('db');
 $dispatcher = $di->get('dispatcher');
 //echo $dispatcher->getControllerName();
 
-
 $application = new Application($di);
 
-$application->start();
+
+
 
 //注册控制器路径和模型路径
 $application->registerDirs(array(
@@ -61,7 +62,8 @@ $application->registerDirs(array(
 ));
 
 
-$application->handle()->getContent();
+
+$application->handle();
 
 
 

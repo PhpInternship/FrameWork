@@ -1,14 +1,13 @@
 <?php
+namespace Library\Util;
+
 /**
  * 调度器类
- * 
+ *
  * @author hongker
  * @package Library\Util
  * @version 1.0
  */
-namespace Library\Util;
-
-
 class Dispatcher {
 	/**
 	 * 模块名称
@@ -43,6 +42,7 @@ class Dispatcher {
 	 * @param String $uri 请求资源
 	 */
 	public function __construct() {
+		echo 'dispatcher <br>';
 		$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 		$this->initalize($uri);		
 		
@@ -203,7 +203,35 @@ class Dispatcher {
 	 * @route['action'] 响应方法名称
 	 */
 	public function forward(Array $route) {
+		echo 'forward';
+	}
 	
+	/**
+	 * 处理响应,返回控制器和响应方法
+	 */
+	public function process() {
+		$route['controller'] = $this->filterControllerName($this->controller);
+		$route['action'] = $this->filterActionName($this->action);
+		
+		return $route;
+	}
+	
+	/**
+	 * 处理控制器名称
+	 * @param unknown $controller
+	 * @return string
+	 */
+	public function filterControllerName($controller) {
+		return ucfirst($controller).'Controller';
+	}
+	
+	/**
+	 * 处理响应方法名称
+	 * @param unknown $action
+	 * @return string
+	 */
+	public function filterActionName($action) {
+		return $action.'Action';
 	}
 	
 }
